@@ -22,13 +22,11 @@ class _MyAppState extends State<MyApp> {
   var temp;
   var feelslike;
   var pressure;
-  var url =
-      'http://api.openweathermap.org/data/2.5/weather?q=London&appid=05f5b20efac52f3ff8beb72cc63d366f';
+  var url = 'http://api.openweathermap.org/data/2.5/weather?q=London&appid=';
   Future getData() async {
     cityname = 'Mumbai';
 
-    url =
-        'http://api.openweathermap.org/data/2.5/weather?q=Mumbai&appid=05f5b20efac52f3ff8beb72cc63d366f';
+    url = 'http://api.openweathermap.org/data/2.5/weather?q=Mumbai&appid=';
 
     var response = await http.get(url);
 
@@ -77,7 +75,7 @@ class _MyAppState extends State<MyApp> {
     var lat = currentposition.latitude;
     var long = currentposition.longitude;
     url =
-        'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$long&appid=05f5b20efac52f3ff8beb72cc63d366f';
+        'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$long&appid=';
     var response = await http.get(url);
     var data = jsonDecode(response.body) as Map<String, dynamic>;
     setState(() {
@@ -102,8 +100,7 @@ class _MyAppState extends State<MyApp> {
   void citynamechanger() {
     setState(() {
       cityname = city.text;
-      url =
-          'http://api.openweathermap.org/data/2.5/weather?q=$cityname&appid=05f5b20efac52f3ff8beb72cc63d366f';
+      url = 'http://api.openweathermap.org/data/2.5/weather?q=$cityname&appid=';
       cityData();
     });
   }
