@@ -123,19 +123,26 @@ class _MyAppState extends State<MyApp> {
     print('hello');
     return MaterialApp(
         home: Scaffold(
+      backgroundColor: Color.fromRGBO(252, 237, 237, 1),
       appBar: AppBar(
         title: Text(
           'Weather',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Color.fromRGBO(255, 0, 255, 1),
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextField(
-              decoration: InputDecoration(labelText: 'Search'),
-              controller: city,
+            Container(
+              decoration: BoxDecoration(color: Colors.white),
+              child: TextField(
+                textCapitalization: TextCapitalization.words,
+                decoration: InputDecoration(
+                  labelText: 'Search',
+                ),
+                controller: city,
+              ),
             ),
             Column(
               children: [
@@ -145,33 +152,37 @@ class _MyAppState extends State<MyApp> {
                 ),
                 FittedBox(
                   child: Text(
-                    '$cityname',
-                    style: TextStyle(fontSize: 80),
+                    '$cityname'.toUpperCase(),
+                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold),
                   ),
                 ),
                 FittedBox(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Nation: $country', style: TextStyle(fontSize: 30)),
+                      Text('Nation: $country',
+                          style: TextStyle(fontSize: 35, color: Colors.black)),
                       Text(
                         'Temperature: $temp' + '\u2103',
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(fontSize: 35, color: Colors.black),
                       ),
                       Text(
                         'Feels-like: $feelslike' + '\u2103',
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(fontSize: 35, color: Colors.black),
                       ),
                       Text(
                         'Pressure:$pressure Pa',
-                        style: TextStyle(fontSize: 30),
+                        style: TextStyle(fontSize: 35, color: Colors.black),
                       ),
                       Text('Humidity: $humidity %',
-                          style: TextStyle(fontSize: 30)),
-                      Text('sky : $sky', style: TextStyle(fontSize: 30)),
+                          style: TextStyle(fontSize: 35, color: Colors.black)),
+                      Text('sky : $sky',
+                          style: TextStyle(fontSize: 35, color: Colors.black)),
                       RaisedButton(
                         child: Text('MY LOCATION DATA'),
                         onPressed: geolocation,
+                        color: Colors.white,
+                        elevation: 10,
                       ),
                     ],
                   ),
